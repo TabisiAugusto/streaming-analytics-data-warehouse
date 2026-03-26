@@ -1,194 +1,93 @@
-# Streaming Analytics Data Warehouse. Modelado de datos y análisis de plataformas de streaming
-🇪🇸 Versión en Español
-📌 Descripción del Proyecto
+# Streaming Platforms BI & Data Model 🎬
 
-Este proyecto consiste en el diseño e implementación de un modelo de datos relacional orientado al análisis de películas distribuidas en plataformas de streaming (Netflix y Disney+).
+🌍 *[Read in English](#-english-version) | [Leer en Español](#-versión-en-español)*
 
-El objetivo principal es estructurar la información en un esquema optimizado para análisis, permitiendo generar insights de negocio relacionados con:
+---
 
-Popularidad y valoraciones de películas
+## 🇬🇧 English Version
 
-Rendimiento de directores
-
-Distribución geográfica
-
-Comparación entre plataformas
-
-Tendencias por año
-
-Duración promedio de contenido
-
-El dataset incluye 4.112 películas con información actualizada hasta principios de 2020.
-
-🧱 Arquitectura de Datos
-
-El modelo sigue una estructura inspirada en un esquema estrella, compuesta por:
-
-Tabla principal (tipo fact):
-
-General (información central de cada película)
-
-Tablas dimensión:
-
-Plataformas
-
-Directores
-
-Géneros
-
-Países
-
-Idiomas
-
-Clasificación por edad
-
-Calendario
-
-Se definieron claves primarias (PK) y claves foráneas (FK) para asegurar integridad relacional.
-
-🔄 Transformaciones Realizadas
-
-Normalización de campos ID.
-
-Ajuste de la variable Rotten Tomatoes para facilitar comparación analítica.
-
-Creación de tabla calendario para análisis temporal.
-
-Implementación de medidas calculadas (DAX) para indicadores clave.
-
-📊 Indicadores Implementados
-
-Cantidad total de películas
-
-Películas por plataforma
-
-Cantidad de directores únicos
-
-Cantidad de géneros
-
-Duración promedio
-
-Promedio de puntuación IMDb
-
-🎯 Objetivo de Negocio
-
-El dashboard desarrollado permite análisis interactivo orientado a nivel táctico, facilitando la exploración de datos para toma de decisiones en el sector streaming / entretenimiento.
-
-Permite identificar patrones, comparaciones y tendencias relevantes.
-
-🛠 Herramientas Utilizadas
-
-Power BI
-
-Modelado relacional
-
-DAX
-
-Normalización de datos
-
-🚀 Próximas Mejoras
-
-Implementación del modelo en SQL
-
-Migración a Data Warehouse en la nube
-
-Capa de transformación con dbt
-
-Automatización del pipeline de datos
-
-🇺🇸 English Version
-📌 Project Overview
-
-This project consists of the design and implementation of a relational data model for analyzing movies distributed across streaming platforms (Netflix and Disney+).
+### 📌 Project Overview
+This project consists of the design and implementation of a relational data model and Business Intelligence dashboard for analyzing movies distributed across streaming platforms (Netflix and Disney+).
 
 The main objective is to structure the data into an analytics-optimized schema that enables business insights related to:
+* Movie popularity and ratings
+* Director performance and ROI
+* Geographic distribution
+* Platform comparison and catalog overlap
+* Yearly production trends and average runtime
 
-Movie popularity and ratings
+*(The dataset contains 4,112 movies updated until early 2020).*
 
-Director performance
+### 🧱 Data Architecture & Modeling
+The model follows a strict **Star Schema**, ensuring optimized query performance and relational integrity through Primary Keys (PK) and Foreign Keys (FK):
+* **Fact Table:** `General` (central movie attributes and quantitative metrics).
+* **Dimension Tables:** `Platforms`, `Directors`, `Genres`, `Countries`, `Languages`, `Age Classification`, and a dedicated `Calendar` table for time-series analysis.
 
-Geographic distribution
+### 🔄 Data Transformations (ETL)
+* Normalization of ID fields across raw datasets.
+* Rotten Tomatoes scores adjusted for standardized analytical comparison.
+* DAX measures implemented for dynamic KPI calculation.
 
-Platform comparison
+### 📊 Implemented KPIs
+* Total Movies & Movies per Platform
+* Distinct Directors & Genres
+* Average Runtime & IMDb Score
 
-Yearly trends
+### 🎯 Business Objective
+The developed dashboard enables tactical-level interactive analysis, supporting decision-making processes in the entertainment industry. It allows stakeholders to explore catalog patterns, platform comparisons, and content trends.
 
-Average runtime
+### 🛠 Tools Used
+* **Business Intelligence:** Power BI
+* **Data Engineering:** Relational Data Modeling, Data Normalization
+* **Analytics:** DAX (Data Analysis Expressions)
 
-The dataset contains 4,112 movies updated until early 2020.
+### 🚀 Phase 2: Cloud Architecture Roadmap
+* SQL-based schema implementation (Relational Database mapping).
+* Cloud Data Warehouse migration.
+* Integration of `dbt` (data build tool) for the transformation layer.
+* Automated data pipeline execution.
 
-🧱 Data Architecture
+---
 
-The model follows a star-schema inspired structure, composed of:
+## 🇪🇸 Versión en Español
 
-Main table (fact-like):
+### 📌 Descripción del Proyecto
+Este proyecto consiste en el diseño e implementación de un modelo de datos relacional y un dashboard de Business Intelligence orientado al análisis de contenido distribuido en plataformas de streaming (Netflix y Disney+).
 
-General (central movie attributes)
+El objetivo principal es estructurar la información en un esquema optimizado que permita generar *insights* de negocio relacionados con:
+* Popularidad y valoraciones del contenido
+* Rendimiento de directores 
+* Distribución geográfica
+* Comparación de catálogos entre plataformas
+* Tendencias de producción por año y duración promedio
 
-Dimension tables:
+*(El dataset incluye 4.112 películas con información actualizada hasta principios de 2020).*
 
-Platforms
+### 🧱 Arquitectura y Modelado de Datos
+El modelo sigue una estructura de **Esquema de Estrella (Star Schema)** pura, garantizando rendimiento analítico e integridad referencial mediante Claves Primarias (PK) y Foráneas (FK):
+* **Tabla de Hechos (Fact Table):** `General` (información central y métricas cuantitativas).
+* **Tablas de Dimensión:** `Plataformas`, `Directores`, `Géneros`, `Países`, `Idiomas`, `Clasificación por Edad`, y una tabla `Calendario` para inteligencia de tiempo.
 
-Directors
+### 🔄 Transformaciones Realizadas (ETL)
+* Normalización de campos ID desde las fuentes crudas.
+* Ajuste de la variable de Rotten Tomatoes para estandarización analítica.
+* Implementación de medidas complejas en DAX para el cálculo dinámico de KPIs.
 
-Genres
+### 📊 KPIs Implementados
+* Cantidad total de películas y distribución por plataforma
+* Cantidad de directores y géneros únicos
+* Duración promedio y promedio de puntuación IMDb
 
-Countries
+### 🎯 Objetivo de Negocio
+El dashboard desarrollado permite un análisis interactivo a nivel táctico, facilitando la toma de decisiones en el sector del entretenimiento. Permite a los *stakeholders* identificar patrones de catálogo, comparar plataformas y detectar tendencias clave.
 
-Languages
+### 🛠 Herramientas Utilizadas
+* **Business Intelligence:** Power BI
+* **Ingeniería de Datos:** Modelado Relacional, Normalización de Datos
+* **Analítica:** DAX (Data Analysis Expressions)
 
-Age classification
-
-Calendar table
-
-Primary and foreign keys were defined to ensure relational integrity.
-
-🔄 Transformations Performed
-
-ID field normalization.
-
-Rotten Tomatoes score adjusted for analytical comparison.
-
-Calendar table creation for time-based analysis.
-
-DAX measures implemented for KPI calculation.
-
-📊 Implemented Metrics
-
-Total Movies
-
-Movies per Platform
-
-Distinct Directors
-
-Distinct Genres
-
-Average Runtime
-
-Average IMDb Score
-
-🎯 Business Objective
-
-The dashboard enables tactical-level interactive analysis, supporting decision-making processes in the streaming and entertainment industry.
-
-It allows users to explore patterns, comparisons and relevant trends.
-
-🛠 Tools Used
-
-Power BI
-
-Relational Data Modeling
-
-DAX
-
-Data normalization techniques
-
-🚀 Future Improvements
-
-SQL-based schema implementation
-
-Cloud Data Warehouse migration
-
-dbt transformation layer
-
-Automated data pipeline integration
+### 🚀 Fase 2: Roadmap de Arquitectura Cloud
+* Implementación del modelo físico en SQL.
+* Migración hacia un Data Warehouse en la nube.
+* Capa de transformación escalable utilizando `dbt`.
+* Automatización del *pipeline* de ingesta de datos.
